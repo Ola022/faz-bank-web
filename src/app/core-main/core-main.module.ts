@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreMainComponent } from './core-main.component';
+import { HeaderComponent } from './header/header.component';
 
 
 export const coreMainRoutes: Routes = [
@@ -37,7 +38,7 @@ export const coreMainRoutes: Routes = [
 
 @NgModule({
   declarations: [    
-    CoreMainComponent
+    CoreMainComponent, HeaderComponent
   ],
   imports: [
     CommonModule,

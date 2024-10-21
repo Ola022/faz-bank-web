@@ -14,89 +14,36 @@ module.exports = {
       {
         // Custom Dark Theme
         dark: {
-          'primary': '#2563EB', 
-          'bg': "#663399",
-          'secondary': {
-            100: '#E2E2D5',
-            200: '#888883',
-          },          
-          'accent': '#F43F5E',
-          'neutral': '#111827',
-          'base-100': '#1B1B1B', // Background color for dark mode
-          'info': '#3B82F6',
-          'success': '#10B981',
-          'warning': '#F59E0B',
-          'error': '#EF4444',
+          'primary': '#800020',  // Custom dark primary color
+          'bg': '#121212',  // Dark background color
+          secondary:   '#555555',  // Custom dark secondary color (lighter than light secondary)        
+          secondarylight : '#1B1B1B',
+          accent: '#FF6F61',  // Accent color to complement the primary color
+          neutral: '#222222',  // Dark neutral color
+          'base-100': '#181818',  // Base background for dark mode
+          info: '#4696EB',  // Info color
+          success: '#34D399',  // Success color
+          warning: '#EAB308',  // Warning color
+          error: '#F87171',  // Error color
         },
       },
       {
         // Custom Light Theme
         light: {
-          'primary': '#EF4444',  // Define your custom light primary color
-          'bg': "#663399",
-          'secondary': {
-            100: '#E2E2D5',
-            200: '#888883',
-          },
-          //  '#10B981',
-          'accent': '#6366F1',
-          'neutral': '#374151',
-          'base-100': '#ffffff', // Background color for light mode
-          'info': '#2563EB',
-          'success': '#22C55E',
-          'warning': '#F59E0B',
-          'error': '#EF4444',
+          primary: '#800020',  // Custom light primary color
+          bg: '#F7F7F7',  // Light background color
+          secondary:'#444444',  // Custom secondary color          
+          secondarylight : '#1B1B1B',
+          accent: '#FF6F61',  // Accent color that complements primary
+          neutral: '#666666',  // Neutral color that contrasts well with primary and secondary
+          'base-100': '#ffffff',  // Base background for light mode
+          info: '#007BFF',  // Info color
+          success: '#28A745',  // Success color
+          warning: '#FFC107',  // Warning color
+          error: '#DC3545',  // Error color
         },
       },
     ],
   },
 };
-//   theme: {
-//     extend: {
-//       colors :{
-//         primary: '#FF6363',
-//         secondary: {
-//           100: '#E2E2D5',
-//           200: '#888883',
-//         },
-//         bg: {
-//           DEFAULT: "#663399",
-//         },
-//         secondaryalternative:{
-//           DEFAULT : "#2C2C2B"
-//         }
-//         ,
-//         secondarylight:{
-//           DEFAULT : "#FBFBFB"
-//         }
-//       },
-//       fontFamily: {
-//         body:['Nunito']
-//       }
-//     },
-//   },
-//   plugins: [require('daisyui')],
-//   daisyui: {
-//     themes: [
-//       'light',  // Built-in light theme
-//       'dark',   // Built-in dark theme
-//       'cupcake', // Another built-in theme
-//       {
-//         myCustomTheme: {    // Define your own custom theme
-//           'primary': '#ff5722', // Custom primary color
-//           'secondary': '#8bc34a',
-//           'accent': '#03a9f4',
-//           'neutral': '#607d8b',
-//           'base-100': '#ffffff',  // Base background color
-//           'info': '#2196f3',
-//           'success': '#4caf50',
-//           'warning': '#ff9800',
-//           'error': '#f44336',
-//         },
-//       },
-//     ],
-//   },
-
-
-// }
 

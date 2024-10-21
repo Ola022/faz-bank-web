@@ -1,1 +1,121 @@
-<p>login-page works!</p>
+<div class="min-h-screen flex gap-x-32">
+    <!-- Left side (Login form) -->
+    <div class="w-full md:w-5/12 p-20 px-24 bg-base-100 flex flex-col justify-center space-y-6">
+        <div class="flex items-center space-x-3 p-4 bg-info opacity-80 text-primary">
+            <div><mat-icon>lock</mat-icon> </div>
+            <div>
+                <div class="font-normal text-sm text-white">
+                    Please check that you’re visiting the correct URL
+                </div>
+                <div class="text-[12px] text-primary whitespace-normal">
+                    Orlam.bank.com
+                </div>
+            </div>
+        </div>
+
+        <!-- Login form area with border-radius and shadow -->
+        <div class="border border-secondarylight shadow-2xl p-8 rounded-lg space-y-4">
+            <!-- Login info -->
+            <div>
+                <div class="text-secondary font-medium text-2xl mb-2">Sign in to ORLAM</div>
+                <p class="text-xs text-gray-500 mb-6">To sign in, please type your email address and password below.</p>
+            </div>
+            <div>
+                <!-- Email input -->
+                <label for="email" class="text-sm mb-2 block">Email Address</label>
+                <input id="email" type="email"
+                    class="w-full p-3 mb-4 shadow-md focus:outline-none border border-gray-200 rounded-md"
+                    placeholder="Your email address">
+            </div>
+            <div>
+                <!-- Password input -->
+                <label for="password" class="text-sm mb-2 block">Password</label>
+                <input id="password" type="password"
+                    class="w-full p-3 mb-4 shadow-md focus:outline-none border border-gray-200 rounded-md"
+                    placeholder="Your password">
+            </div>
+            <div>
+                <!-- Forgot password -->
+                <a href="#" class="text-primary text-sm mb-4 inline-block">Forgot Password? <span
+                        class="text-primary">Reset it</span></a>    
+            <!-- Sign In button -->
+            <button
+                class="bg-secondary hover:bg-secondarylight text-white w-full py-2 mb-4 shadow-lg border border-secondary rounded-lg">Sign
+                In</button>
+            </div>
+            <!-- Register info -->
+            <p class="text-xs text-gray-600">If you don’t have an Orlam Account, <a href="#" class="text-primary">click
+                    here to register</a> and create an account with us.</p>
+        </div>
+    </div>
+
+    
+<!-- Right side (Mockup and Image) -->
+<div class="w-full md:w-7/12 flex items-center justify-center relative px-10">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-no-repeat bg-contain"
+        style="background-image: url('assets/images/africa_map21.png'); z-index: 0; background-size: contain; background-position: right top;"></div>
+        
+    <!-- DaisyUI Mockup (increased size) -->
+    <div class="mockup-browser border-base-300 border relative z-10 bg-white w-full  mt-10">
+        <div class="mockup-browser-toolbar">
+            <div class="input border-base-300 border">https://orlam.com</div>
+        </div>   
+        <div class="flex ">
+            <!-- Sidebar (fixed) -->
+            <div class="hidden md:flex md:flex-col md:w-64 md:shadow-lg bg-base-100 h-full">
+                <div class="p-4">
+                    <div class="text-2xl font-bold text-secondary">Dashboard</div>
+                </div>
+                <nav class="flex-1 p-4 space-y-2">
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Dashboard</a>
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Transactions</a>
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Accounts</a>
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Settings</a>
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Settings</a>
+                    <a href="#" class="block p-2 rounded hover:bg-secondarylight">Settings</a>
+                </nav>
+            </div>
+        
+            <!-- Main Content Area -->
+            <div class="flex-1 p-4">
+                <div class="border-base-300 border-t flex flex-col items-center m-0 p-0 py-8">
+                    <!-- Dashboard Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-11/12 mb-6">
+                        <!-- Total Balance Card -->
+                        <div class="flex flex-col items-center bg-gray-100 rounded-lg shadow-lg p-4">
+                            <div class="text-xl font-bold text-secondary">Total Balance</div>
+                            <p class="text-2xl font-semibold text-gray-800">$5,230.00</p>
+                        </div>
+        
+                        <!-- Recent Activity Card -->
+                        <div class="flex flex-col items-center bg-gray-100 rounded-lg shadow-lg p-4">
+                            <div class="text-xl font-bold text-secondary">Recent Activity</div>
+                            <p class="text-lg text-gray-800">3 Transactions</p>
+                            <p class="text-sm text-gray-500">Last updated: 1 hour ago</p>
+                        </div>
+                    </div>
+        
+                    <!-- Recent Transactions -->
+                    <div class="w-full md:w-11/12 ">
+                        <div class="text-lg font-semibold text-gray-800 mb-2">Recent Transactions</div>
+                        <ul class="space-y-1">                            
+                            <li class="flex justify-between w-full border-b py-2">
+                                <span class="text-gray-700">Salary Payment</span>
+                                <span class="text-green-600 font-semibold">$2,500.00</span>
+                            </li>
+                            <li class="flex justify-between w-full border-b py-2">
+                                <span class="text-gray-700">Electricity Bill</span>
+                                <span class="text-red-600 font-semibold">-$75.00</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+    
+</div>

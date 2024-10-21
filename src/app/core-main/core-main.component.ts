@@ -6,32 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './core-main.component.scss'
 })
 export class CoreMainComponent implements OnInit{
-  default_theme = 'light'
+  theme: any
+  
   ngOnInit(): void {
-     this.switchTheme()
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      this.theme = storedTheme;      
+    } 
   }
-  showMenu = true
-
-  toggle(){
-    const burger = document.querySelector('#burger')
-    const menu = document.querySelector('#menu')
-
-    if(menu?.classList.contains('hidden')){
-      menu.classList.remove('hidden')
-    }
-    else{
-      menu?.classList.add('hidden')
-    }
-  }
-
-  switchTheme() {
-    
-    document.documentElement.setAttribute('data-theme', this.default_theme);
-    if(this.default_theme == 'light'){
-      this.default_theme='dark'
-    }
-    else{
-      this.default_theme= 'light'
-    }
-  }
+ get_theme(){
+  this.theme = document.documentElement.getAttribute('data-theme'); // Set to dark
+  console.log(this.theme)
+ }
 }
