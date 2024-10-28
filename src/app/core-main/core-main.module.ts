@@ -26,7 +26,7 @@ export const coreMainRoutes: Routes = [
           ),
       },
       {
-        path: 'cards',
+        path: 'transfer',
         loadChildren: () =>
           import('./cards/cards.module').then(
             (m) => m.CardsModule

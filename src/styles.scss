@@ -5,18 +5,39 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.card {
-    @apply bg-white rounded overflow-hidden shadow-md relative
+.text-secondarylight {
+    color: #EAEAEA !important;
 }
 
-.badge{
-    @apply bg-secondary text-info text-xs uppercase font-bold rounded-full p-2 absolute top-0 ml-2 mt-2
+.bg-secondarylight{
+    background-color: #EAEAEA !important;
+}
+
+.text-secondary-200 {
+    color: #1B1B1B !important;
+}
+
+.bg-secondary-200{
+    background-color: #1B1B1B !important;
 }
 
 .page-padding{    
-    @apply px-3 md:px-10 lg:px-[80px] lg:pt-14 md:pt-10 pt-8 mx-auto;
+    @apply px-3 md:px-10 lg:px-[84px] pt-8 md:pt-10 lg:pt-24 mx-auto;
   } 
-  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+  .btn-primary {
+    @apply hover:bg-secondary text-secondarylight font-normal 
+}
+
+.btn-secondary {
+    @apply hover:bg-primary text-base-100 font-normal 
+}
+.btn-success{
+    @apply text-white 
+}
+.btn-accent{
+    @apply text-white
+}
