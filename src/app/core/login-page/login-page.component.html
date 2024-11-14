@@ -42,7 +42,7 @@
                 <div>
                     <a href="#" class="text-primary text-sm mb-2 inline-block">Forgot Password? <span
                             class="text-primary">Reset it</span></a>
-                    <button class="btn btn-primary w-full py-2 mb-4 " (click)="login()" [disabled]="form.invalid || loading">
+                    <button class="btn btn-primary w-full py-2 mb-4 " (click)="signin()" [disabled]="form.invalid || loading">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
                         Sign In</button>
                 </div>                

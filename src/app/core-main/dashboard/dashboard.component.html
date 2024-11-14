@@ -1,38 +1,39 @@
-<div class="min-h-screenn space-y-6">
+<div class="min-h-screenn space-y-7">
     <!-- Balance Cards in ATM Style -->
-    <div class="grid md:grid-cols-3 gap-6 mt-2">
+    <div class="grid md:grid-cols-2 gap-12 ">
         <!-- ATM Card 1: Current Balance -->
-        <div class="shadow-md rounded-lg p-6 atm-card">
-            <div class="font-medium text-primary-content">Current Balance</div>
-            <p class="text-2xl font-bold mt-2 ">$8,450.23</p>
-            <p class="text-secondarylight text-sm mt-1">Last updated 11s ago</p>
-            <div class="mt-4 flex space-x-2">
-                <button class="btn btn-sm btn-success">Deposit</button>
-                <button class="btn btn-sm">Withdrawal</button>
+        <div class="shadow-md rounded-lg p-6 atm-card space-y-8">
+            <!-- Top Row: Title and Last Updated Time -->
+            <div class="flex justify-between items-center">
+                <div class="font-medium text-primary-content">Current Balance</div>
+                <div class="text-sm text-secondarylight">Last updated 11s ago</div>
+            </div>
+            
+            <!-- Balance Amount and Buttons -->
+            <div class="flex justify-between items-center mt-4">
+                <p class="text-2xl font-bold">$ {{userInfo.money | number: ".2-2"}}</p>
+                <div class="flex space-x-2">
+                    <button class="btn btn-sm btn-success">Deposit</button>
+                    <button class="btn btn-sm">Withdrawal</button>
+                </div>
             </div>
         </div>
-
-        <!-- ATM Card 2: Savings -->
-        <div class="shadow-md rounded-lg p-6 atm-card">
-            <div class="font-medium text-primary-content">Savings</div>
-            <p class="text-2xl font-bold mt-2">$2,300.50</p>
-            <p class="text-secondarylight text-sm mt-1">Last updated 5m ago</p>
-            <div class="mt-4">
-                <button class="btn btn-sm btn-success">Add Funds</button>
-            </div>
-        </div>
-
+    
         <!-- ATM Card 3: Credit Balance -->
-        <div class="shadow-md rounded-lg p-6 atm-card">
-            <div class="font-medium text-primary-content">Credit Balance</div>
-            <p class="text-2xl font-bold mt-2">$1,250.75</p>
-            <p class="text-secondarylight text-sm mt-1">Last updated 10m ago</p>
-            <div class="mt-4">
+        <div class="shadow-md rounded-lg p-6 atm-card space-y-8">
+            <!-- Top Row: Title and Last Updated Time -->
+            <div class="flex justify-between items-center">
+                <div class="font-medium text-primary-content">Credit Balance</div>
+                <div class="text-sm text-secondarylight">Last updated 10m ago</div>
+            </div>
+            
+            <!-- Balance Amount and Button -->
+            <div class="flex justify-between items-center mt-4">
+                <p class="text-2xl font-bold">$1,250.75</p>
                 <button class="btn btn-sm">Request Loan</button>
             </div>
         </div>
     </div>
-
     <div class="rounded-lg bg-neutral px-7 py-3">
         <!-- Account Details Table -->
         <div class="flex flex-col space-y-1">
@@ -46,11 +47,11 @@
             <!-- Data Row -->
             <div class="flex justify-between font-normal text-sm">
                 <span>FAZ</span>
-                <span>ORLAM OLA</span>
+                <span class="uppercase">{{userInfo.surname}} {{userInfo.other_name}}</span>
                 <div class="flex items-center">
-                    <span>123456789</span>
+                    <span>{{userInfo.account_number}}</span>
                     <mat-icon class="ml-2 cursor-pointer text-secondary" title="Copy Account Number"
-                        (click)="copyToClipboard('123456789')">
+                        (click)="copyToClipboard()">
                         content_copy
                     </mat-icon>
                 </div>
