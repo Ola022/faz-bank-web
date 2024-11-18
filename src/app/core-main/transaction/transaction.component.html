@@ -4,42 +4,74 @@
         <div class="col-span-5 bg-neutral shadow-md rounded-lg p-6">
             <div class="flex justify-between items-center">
                 <div class="text-lg font-semibold text-primary">Transactions</div>
-                <div class="flex space-x-2">
-                    <!-- Filter Buttons -->
+                   <!-- <div class="flex space-x-2">
+                 Filter Buttons 
                     <button class="btn btn-accent">All</button>
                     <button class="btn btn-accent">Credit</button>
                     <button class="btn btn-accent">Debit</button>
-                </div>
+                </div>-->
             </div>
 
             <!-- Search Input -->
             <div class="flex mt-4">
                 <input type="text" placeholder="Search Transactions..." class="input input-bordered w-full" />
-                <button class="btn btn-neutral ml-2">Reload</button>
+                <button class="btn btn-neutral ml-2" (click)="fetchTransactions()">Reload</button>
             </div>
-
             <div class="overflow-auto max-h-96 mt-4">
                 <table mat-table [dataSource]="transactions" class="mat-elevation-z8 w-full">
+             
+    
+                    <!-- Description Column -->
+                    <ng-container matColumnDef="transaction_type">
+                        <th mat-header-cell *matHeaderCellDef>Description</th>
+                        <td mat-cell *matCellDef="let transaction">{{ transaction.transaction_type }}</td>
+                    </ng-container>
+    
+                    <!-- Amount Column -->
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef>Amount</th>
+                        <td mat-cell *matCellDef="let transaction" class="text-right">{{ transaction.money | currency
+                            }}</td>
+                    </ng-container>
+    
                     <!-- Date Column -->
                     <ng-container matColumnDef="date">
                         <th mat-header-cell *matHeaderCellDef>Date</th>
-                        <td mat-cell *matCellDef="let transaction">{{ transaction.date }}</td>
+                        <td mat-cell *matCellDef="let transaction">{{ getDate(transaction.timestamp) }}</td>
                     </ng-container>
-
-                    <!-- Description Column -->
+    
+                    <!-- Time Column -->
+                    <ng-container matColumnDef="time">
+                    <th mat-header-cell *matHeaderCellDef>Time</th>
+                    <td mat-cell *matCellDef="let transaction">{{ getTime(transaction.timestamp) }}</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let transaction">
+                            <button class="btn btn-link" (click)="viewDetails(transaction)">View Details</button>
+                        </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <!-- <div class="overflow-auto max-h-96 mt-4">
+                <table mat-table [dataSource]="transactions" class="mat-elevation-z8 w-full">                    
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let transaction">{{ transaction.date }}</td>
+                    </ng-container>                    
                     <ng-container matColumnDef="description">
                         <th mat-header-cell *matHeaderCellDef>Description</th>
                         <td mat-cell *matCellDef="let transaction">{{ transaction.description }}</td>
-                    </ng-container>
-
-                    <!-- Amount Column -->
+                    </ng-container>                    
                     <ng-container matColumnDef="amount">
                         <th mat-header-cell *matHeaderCellDef>Amount</th>
                         <td mat-cell *matCellDef="let transaction" class="text-right">{{ transaction.amount | currency
                             }}</td>
-                    </ng-container>
-
-                    <!-- Action Column -->
+                    </ng-container>                    
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef>Action</th>
                         <td mat-cell *matCellDef="let transaction">
@@ -50,7 +82,7 @@
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
-            </div>
+            </div> -->
         </div>
 
 
@@ -76,32 +108,32 @@
                         </div>
                         <!-- Account Number -->
                         <div class="flex justify-between font-bold text-sm mb-2">
-                            <span>Account Number:</span>
-                            <span>{{ selectedTransaction.accountNumber }}</span>
-                            <button mat-icon-button (click)="copyToClipboard(selectedTransaction.accountNumber)">
+                            <span>to:</span>
+                            <span>{{ selectedTransaction.to }}</span>
+                            <button mat-icon-button (click)="copyToClipboard(selectedTransaction.to)">
                                 <mat-icon class="text-sm text-secondary">copy</mat-icon>
                             </button>
                         </div>
                         <!-- Transaction ID -->
                         <div class="flex justify-between font-bold text-sm mb-2">
                             <span>Transaction ID:</span>
-                            <span>{{ selectedTransaction.transactionId }}</span>
+                            <span>{{ selectedTransaction.id }}</span>
                             <!-- Replace with dynamic transaction ID -->
                         </div>
                         <!-- Date -->
                         <div class="flex justify-between font-bold text-sm mb-2">
                             <span>Date:</span>
-                            <span>{{ selectedTransaction.date }}</span>
+                            <span>{{getTime(selectedTransaction.timestamp) }} {{getDate(selectedTransaction.timestamp)}}</span>
                         </div>
                         <!-- Description -->
                         <div class="flex justify-between font-bold text-sm mb-2">
                             <span>Description:</span>
-                            <span>{{ selectedTransaction.description }}</span>
+                            <span>{{ selectedTransaction.transaction_type }}</span>
                         </div>
                         <!-- Amount -->
                         <div class="flex justify-between font-bold text-sm mb-2">
                             <span>Amount:</span>
-                            <span>{{ selectedTransaction.amount | currency }}</span>
+                            <span>{{ selectedTransaction.money | currency }}</span>
                         </div>
                     </div>
                 </div>

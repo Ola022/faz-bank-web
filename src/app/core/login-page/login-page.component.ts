@@ -25,7 +25,7 @@ export class LoginPageComponent {
     // Initialize the form with email and password fields
     this.form = this.fb.group({
       email: ['mail2@gmail', [Validators.required, Validators.email]], // Email field with validation
-      password: ['', [Validators.required, Validators.minLength(4)]], // Password with minLength validation
+      password: ['1111', [Validators.required, Validators.minLength(4)]], // Password with minLength validation
     });
   }
 
