@@ -1,69 +1,73 @@
-<div class="min-h-screen flex gap-x-32 ">
-    <!-- Left side (Login form) -->
-    <div class="w-full md:w-5/12 p-20 px-24 flex flex-col justify-center space-y-4">
+<div class="min-h-screen flex flex-col md:flex-row md:gap-x-32">
+    <!-- Left side (Login form, always visible) -->
+    <div class="w-full md:w-5/12 flex items-center justify-center px-6 sm:px-10 md:px-24 py-10 md:py-20">
+        <div class="w-full max-w-md space-y-6">
+            <div class="flex items-center space-x-3 p-3 rounded-md bg-secondarylight text-secondary-200">
+                <div><mat-icon>lock</mat-icon></div>
+                <div>
+                    <div class="font-normal text-sm">Please check that you’re visiting the correct URL</div>
+                    <div class="text-[12px] text-primary whitespace-normal">Orlam.bank.com</div>
+                </div>
+            </div>
 
-        <div class="flex items-center space-x-3 p-3 rounded-md bg-secondarylight text-secondary-200">
-            <div><mat-icon>lock</mat-icon> </div>
-            <div>
-                <div class="font-normal text-sm ">
-                    Please check that you’re visiting the correct URL
-                </div>
-                <div class="text-[12px] text-primary whitespace-normal">
-                    Orlam.bank.com
-                </div>
-            </div>
-        </div>
-        <form [formGroup]="form">
-            <div class="border border-secondarylight shadow-2xl p-8 rounded-lg space-y-4">
-                <!-- Login info -->
-                <div>
-                    <div class="flex items-center text-primary font-semibold text-2xl mb-3 space-x-4">
-                        <img class="h-12" src="assets/images/faz-logo.png" />
-                        <div> Sign in to FAZ</div>
+            <form [formGroup]="form">
+                <div class="rounded-lg p-6 sm:p-8 md:p-10 space-y-6 bg-white">
+                    <!-- Login info -->
+                    <div>
+                        <div class="flex items-center text-primary font-semibold text-xl sm:text-2xl mb-4 space-x-3 sm:space-x-4">
+                            <img class="h-10 sm:h-12" src="assets/images/faz-logo.png" />
+                            <div>Sign in to FAZ</div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-secondary mb-6">
+                            To sign in, please type your email and password below.
+                        </p>
                     </div>
-                    <p class="text-xs text-secondary mb-6">To sign in, please type your email and password below.</p>
+
+                    <div>
+                        <label for="email" class="text-sm mb-1 block">Email Address</label>
+                        <input id="email" type="email" formControlName="email"
+                            class="w-full p-3 focus:outline-none border border-gray-300 rounded-md"
+                            placeholder="Your email address">
+                    </div>
+
+                    <div>
+                        <label for="password" class="text-sm mb-1 block">Password</label>
+                        <input id="password" type="password" formControlName="password"
+                            class="w-full p-3 focus:outline-none border border-gray-300 rounded-md"
+                            placeholder="Your password">
+                    </div>
+
+                    <div class="space-y-3">
+                        <a href="#" class="text-primary text-sm inline-block">Forgot Password? 
+                            <span class="text-primary">Reset it</span>
+                        </a>
+                        <button class="btn btn-primary w-full py-2" 
+                                (click)="signin()" 
+                                [disabled]="form.invalid || loading">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+                            Sign In
+                        </button>
+                    </div>  
+
+                    <p class="text-xs text-gray-600">
+                        If you don’t have an FAZ Account, 
+                        <a href="#" class="text-primary">click here to register</a>
+                    </p>
                 </div>
-                <div>
-                    <label for="email" class="text-sm mb-1 block">
-                        <span class="label-text">Email Address</span>
-                    </label>
-                    <input id="email" type="email" formControlName="email"
-                        class="w-full p-3 mb-4 shadow-md focus:outline-none border border-gray-200 rounded-md"
-                        placeholder="Your email address">
-                </div>
-                <div>
-                    <label for="password" class="text-sm mb-1 block">
-                        <span class="label-text">Password</span>
-                    </label>
-                    <input id="password" type="password" formControlName="password"
-                        class="w-full p-3 mb-4 shadow-md focus:outline-none border border-gray-200 rounded-md"
-                        placeholder="Your password">
-                </div>
-                <div>
-                    <a href="#" class="text-primary text-sm mb-2 inline-block">Forgot Password? <span
-                            class="text-primary">Reset it</span></a>
-                    <button class="btn btn-primary w-full py-2 mb-4 " (click)="signin()" [disabled]="form.invalid || loading">
-                        <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
-                        Sign In</button>
-                </div>                
-                <p class="text-xs text-gray-600">If you don’t have an FAZ Account, <a href="#"
-                        class="text-primary">click
-                        here to register</a> and create an account with us.</p>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
-    <!-- Right side (Mockup and Image) -->
-    <div class="w-full md:w-7/12 flex items-center justify-center relative px-10">
-        <!-- Background Image -->
+    <!-- Right side (Hidden on mobile) -->
+    <div class="hidden md:flex w-full md:w-7/12 items-center justify-center relative px-10">
         <div class="absolute inset-0 bg-no-repeat bg-contain"
             style="background-image: url('assets/images/africa_map21.png'); z-index: 0; background-size: contain; background-position: right top;">
         </div>
 
-        <!-- DaisyUI Mockup (increased size) -->
-        <div class="mockup-browser border border-secondary relative z-10 bg-base-100 w-full  mt-10">
-            <div class="mockup-browser-toolbar">
-                <div class="input border-base-300 border ">https://faz.intercontinaltal.bank</div>
+        <div class="mockup-browser border border-secondary relative z-10 bg-base-100 w-full mt-10">
+
+        <div class="mockup-browser-toolbar">
+                <div class="input border-base-300 border ">https://faz.intercontinental.bank</div>
             </div>
             <div class="flex ">
                 <!-- Sidebar (fixed) -->
@@ -97,7 +101,7 @@
                             <!-- Recent Activity Card -->
                             <div class="flex flex-col items-center bg-gray-100 rounded-lg shadow-md p-4">
                                 <div class="text-sm font-medium text-secondary-200">Hamster Coin</div>
-                                <p class="text-xl font-semibold text-gray-800">$1,7bn</p>
+                                <p class="text-xl font-semibold text-gray-800">$1.7bn</p>
                             </div>
                         </div>
 
@@ -119,8 +123,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-
-
 </div>
