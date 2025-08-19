@@ -41,11 +41,11 @@
                         <a href="#" class="text-primary text-sm inline-block">Forgot Password? 
                             <span class="text-primary">Reset it</span>
                         </a>
-                        <button class="btn btn-primary w-full py-2" 
-                                (click)="signin()" 
-                                [disabled]="form.invalid || loading">
-                            <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
-                            Sign In
+                        <button class="btn btn-primary w-full py-2 flex items-center justify-center gap-2"
+                            (click)="signin()" 
+                            [disabled]="form.invalid || loading">
+                            <span *ngIf="loading" class="loading loading-spinner loading-sm"></span>
+                            <span>Sign In</span>
                         </button>
                     </div>  
 
